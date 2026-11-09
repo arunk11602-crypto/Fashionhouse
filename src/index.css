@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-100 text-maroon-900 font-sans leading-[1.5] antialiased;
+  }
+
+  html[lang='hi'] body {
+    font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply leading-[1.2];
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-maroon-700 px-6 py-3 text-lg font-medium text-cream-50 shadow-md shadow-maroon-900/20 transition duration-300 hover:-translate-y-0.5 hover:bg-maroon-800 hover:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-gold-400/60 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold-500 px-6 py-3 text-lg font-medium text-maroon-900 shadow-md shadow-gold-600/20 transition duration-300 hover:-translate-y-0.5 hover:bg-gold-400 hover:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-gold-300;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-cream-50/80 px-6 py-3 text-lg font-medium text-cream-50 backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:bg-cream-50 hover:text-maroon-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-gold-300;
+  }
+
+  .field {
+    @apply w-full rounded-2xl border border-maroon-100 bg-white px-4 py-3 text-lg text-maroon-900 placeholder:text-maroon-300 transition focus:border-gold-500 focus:outline-none focus:ring-4 focus:ring-gold-400/25;
+  }
+
+  .label {
+    @apply mb-2 block text-base font-medium text-maroon-800;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out both;
+  }
+
+  .animate-ticker {
+    animation: ticker 38s linear infinite;
+  }
+
+  .animation-delay-150 {
+    animation-delay: 150ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-450 {
+    animation-delay: 450ms;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #booking-receipt,
+  #booking-receipt * {
+    visibility: visible;
+  }
+
+  #booking-receipt {
+    position: absolute;
+    inset: 0;
+    box-shadow: none;
+  }
+
+  .print-hidden {
+    display: none !important;
+  }
+}
